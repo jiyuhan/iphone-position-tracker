@@ -1,0 +1,10 @@
+{
+  "name": "iphone-to-web",
+  "version": "1.0.1",
+  "description": "this transfers your iPhone's quaternion data to a website to control a small 3D cube.",
+  "dependencies": {
+    "serialport": "^5.0.0",
+    "serialport2": "0.0.5",
+    "ws": "^3.1.0"
+  }
+}

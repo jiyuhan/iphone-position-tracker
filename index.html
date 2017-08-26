@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- jQuery CDN // -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- font awesome CDN // -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <!-- bootstrap CDN // -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- my style sheet // -->
+    <link rel="stylesheet" href="main.css" type="text/css">
+
+    <!-- Three.js // -->
+    <script type="text/javascript" src="lib/three.js-master/build/three.js"></script>
+
+  </head>
+  <body>
+
+      <h1 class="text-center" id="jumbo">Welcome to HackIowa!</h1>
+      <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+              <p class="text-center" id="intro-text">This is a demonstration of what cool things we might do here.</p>
+
+              <!-- this is a container for testing purpose. It updates the current position of the cube. // -->
+              <div class="text-center" id="rotation-data"></div>
+
+              <!-- this is a container for webGL // -->
+              <div class="text-center" id="potential-cool-stuff"></div>
+
+          </div>
+          <div class="col-md-3"></div>
+      </div>
+
+      <div class="container-fluid" id="about-this-page">
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-4">
+                  <h3 class="text-center" id="add-extra-padding">About this page</h3>
+                  <br>
+                  <h4 class="text-center" id="add-extra-margin">Designed for HackIowa's August 30th introducing event. Coded by <a href="https://github.com/jiyuhan/">Thomas Han</a>.</h4>
+              </div>
+
+              <div class="col-md-4">
+                  <h3 class="text-center" id="add-extra-padding">Portal to some cool pages (update this!)</h3>
+                  <!-- change this-->
+                  <h1 class="text-center" id="add-extra-margin"><a href="https://github.com/jiyuhan"><i class="fa fa-github"></i></a><a href="https://twitter.com/Thomas__Han"><i class="fa fa-twitter"></i></a></h1>
+              </div>
+              <div class="col-md-2"></div>
+          </div>
+      </div>
+      <script type="text/javascript" src="3d-cube-Three.js"></script>
+  </body>
+</html>
