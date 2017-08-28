@@ -1,42 +1,37 @@
 /**************** DISCLAIMER *************************
  * the original code is from the internet:
  * https://jsfiddle.net/MadLittleMods/n6u6asza/
- * There are changes regarding functionality and style.
- * However, the author of this project
+ * There are over 50% of the code is changed regarding
+ * functionality and style. The author of this project
  * shall not be held responsible for any legal
  * circumstances.       @Thomas Han
  *****************************************************/
 
 var three = THREE;
-
 var scene = new three.Scene();
-
 const WIDTH = 800;
 const HEIGHT = 800;
-
-var data_url = '127.0.0.1:8000/';
-
 var camera = new three.PerspectiveCamera(40, WIDTH/HEIGHT, 0.1, 1000);
 
 var renderer = new three.WebGLRenderer();
 renderer.setSize(WIDTH, HEIGHT);
 
+/* which container do you want it to go to? */
 document.getElementById("potential-cool-stuff").appendChild(renderer.domElement);
 
+/* the cube is here! */
 var geometry = new three.BoxGeometry(1, 2, 0.1);
 
+/* loading texture mappings */
 three.ImageUtils.crossOrigin = '';
 var texture_front = three.ImageUtils.loadTexture('res/iphone_front.jpg');
 var texture_back = three.ImageUtils.loadTexture('res/iphone_back.jpg');
 var texture_side = three.ImageUtils.loadTexture('res/iphone_side.jpg');
-// var texture = three.ImageUtils.loadTexture('res/texture2.jpg');
-// var texture = three.ImageUtils.loadTexture('res/original.jpg');
-// var texture_rev = three.ImageUtils.loadTexture('res/reverse.png');
 texture_front.anisotropy = renderer.getMaxAnisotropy();
 texture_back.anisotropy = renderer.getMaxAnisotropy();
 texture_side.anisotropy = renderer.getMaxAnisotropy();
-// texture_rev.anisotropy = renderer.getMaxAnisotropy();
 
+/* attaching texture mappings */
 var material = new three.MeshFaceMaterial([
     // side
     new three.MeshBasicMaterial({
@@ -65,8 +60,8 @@ var material = new three.MeshFaceMaterial([
         map: texture_back
     })
 ]);
-/* */
 
+/* the cube is built, assign to an object */
 var cube = new three.Mesh(geometry, material);
 
 // set initial position for the cube
@@ -74,30 +69,24 @@ var cube = new three.Mesh(geometry, material);
 // cube.rotation.y = Math.PI/4;
 // cube.rotation.z = -0.5;
 
-// adding the cube
+/* adding the cube */
 scene.add(cube);
 
 camera.position.z = 5;
 
-/* initiate a variable to check if on drag */
-var isDragging = false;
-/* initiate a variable to track previous mouse position */
-var previousMousePosition = {
-    x: 0,
-    y: 0
-};
-
 /* a callback function for server side in order to update the object's position
  * invoked by having a in stream with something like inputQuaternion("0.0, 0.0, 0.0, 1")
+ * <i>update: this function is not a callback function anymore. The basic functionality
+ * is still the same.</i>
  */
 var inputQuaternion = function(input) {
-    // console.log(input.split('').reverse().join(''));
 
+	/* splits data into x, y, z, w */
     var incomingQuaternionData = input.split(',');
 
     for(var i = 0; i < 4; i++) {
       incomingQuaternionData[i] = incomingQuaternionData[i] * 10 / 10;
-      console.log(incomingQuaternionData[i]);
+      // console.log(incomingQuaternionData[i]);
     }
 
     var quaternionData = new three.Quaternion().set(incomingQuaternionData[0], incomingQuaternionData[1], incomingQuaternionData[2], incomingQuaternionData[3]);

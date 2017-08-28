@@ -1,37 +1,69 @@
-body {
-  background-color: #ffcd00;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-h1 {
-  font-size: 50px;
+#some-padding-please {
+    padding-top: 20%;
 }
 
-#jumbo {
-  padding-top: 200px;
-  margin-bottom: 100px;
-
+.full-screen {
+    min-height: 100%;
 }
 
-#intro-text {
-  font-size: 20px;
-  padding-bottom: 100px;
+#hint {
+    color: darkgrey;
+    margin-top: 60%;
 }
 
-#about-this-page {
-  padding-top: 100px;
-  padding-bottom: 80px;
-  background-color: #a8a8a8;
+#landing {
+    background-color: #ffcd00;
+}
+
+#about {
+    background-image: url("res/hackathon_example.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#project {
+    background-color:blue;
+	font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+    color: azure;   
+}
+
+#animated-cursor::after {
+    content: "";
+    /* Remove display: inline-block if not required to be on the same line as text etc */
+    display: inline-block;
+    background-color: azure;
+    vertical-align: top;
+    width: 10px;
+    /* Set height to the line height of .text */
+    height: 24px;
+    -webkit-animation: blink 1s step-end infinite;
+    animation: blink 1s step-end infinite;
 }
 
 #potential-cool-stuff {
-  margin-bottom: 100px;
+  margin-top: 50px;
 }
 
-/* #landing {
-  background-image: url("http://mobileadvertisingwatch.com/wp-content/uploads/2014/07/Advertising-Weather-Report-Increasingly-Sunny-Forecast-for-Native-Advertising.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+#footer {
+    background-color: cadetblue;
 }
-*/
+
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
