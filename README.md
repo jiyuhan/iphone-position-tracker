@@ -1,36 +1,70 @@
 # welcome-project
 
-This is the project that I will be presenting on August 30th for club fair.
+This is the project that I will be presenting on August 30th for club fair. A testing video can be seen <a href="https://youtu.be/_88heV2FmLk">here</a>.
 
 ## abstract
 
 This project is simply using ATmega32u4 and a bluetooth LE (BLE) moduleto receive information from iPhone's gyroscope for the quaternion. Then, using serial connection to feed Node.js to create a server that updates iPhone's position. A client side app will use the data to control a webGL cube.
 
-## current status
+## how does it work?
 
-<b>8/25/2017</b> - I finished setting up the client side. Try to run  
+This project goes around like this:
+
+iPhone (quaternion data)
+
+⬇️ Bluetooth Low Energy (BLE)
+
+Adafruit 32u4 Feather
+
+⬇️ Serial Comm. (baud rate: 115200)
+
+Node.js server
+
+⬇️ parsed nicely and upload to http://localhost:8000/ (127.0.0.1:8000)
+
+intranet
+
+⬇️ taken by client side, and taken by 3D model
+
+client virtual phone moves.
+
+## how to use it
+
+First step is to start the server side. Run 
 ```{r}
-test-three.html
+ls /dev/tty.*
 ```
-and it should be working with a draggable box. It is also controlable now by using console in your favorite web browser. Please type
+to determine which serial port you are using for Adafruit 32u3 Feather. Then change accordingly in ```serialToNode.js```.
+
+Then install dependencies. Type
 ```{r}
-inputQuaternion("[your x],[your y],[your z],[your w]")
+npm install serialport
 ```
-then it will change to the position you requested (notice there is no space after each comma).
+If it fails, try this
+```{r}
+sudo npm install serialport --unsafe-perm --build-from-source
+```
+If still doesn't work, reading <a href="https://www.npmjs.com/package/serialport">this</a> might help.
 
-<b>8/26/2017</b> - I finished setting up the server side. Now the server needs to get data from serial port (115200). For now, the server spits out random quaternion data to the client through a websocket. If you want to try it out, go to the folder that contains file
-``` {r}
-webSocketStream
+Next step, install ws (websocket).
+```{r}
+npm install ws
 ```
-And type command at console
-``` {r}
-nodejs webSocketStream.js
+this usually should work fine.
+
+After all this, open a terminal and run
+```{r}
+nodejs serialToNode.js
 ```
-This should be good to set up the server (on localhost). If you use the older version of node.js, try
-``` {r}
-node webSocketStream.js
+Or if your laptop runs MacOS or maybe older version of node.js, try
+```{r}
+node serialToNode.js
 ```
 
-Then you can click on the page <b>test-three.html</b>, and it should have an iPhone spinning around like crazy.
+Next, we are to open the client side. Open the file ```index.html``` should do the job. It might not be able to support all the browsers, but FireFox should work.
 
-### feel free to change anything if you think it looks bad, or if you are able to help out, please contact me.
+## web design
+
+More work in web designing would be great, but since my time is limited, so are my web design skills.
+
+@ <a href="https://www.github.com/jiyuhan">Thomas Han</a>
