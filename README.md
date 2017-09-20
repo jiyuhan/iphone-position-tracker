@@ -1,4 +1,4 @@
-# welcome-project
+# phoneController - part I
 
 This is the project that I will be presenting on August 30th for club fair. A testing video can be seen <a href="https://youtu.be/_88heV2FmLk">here</a>.
 
@@ -65,6 +65,6 @@ Next, we are to open the client side. Open the file ```index.html``` should do t
 
 ## web design
 
-More work in web designing would be great, but since my time is limited, so are my web design skills.
+I previously had a temeprary website I designed, but now I have a better one there.
 
 @ <a href="https://www.github.com/jiyuhan">Thomas Han</a>
